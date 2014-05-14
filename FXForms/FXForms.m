@@ -1773,6 +1773,10 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
         }
         if (!subcontroller.title) subcontroller.title = self.field.title;
         [controller.navigationController pushViewController:subcontroller animated:YES];
+        
+        if (self.field.action) {
+            self.field.action(self);
+        }
     }
     else if (self.field.action)
     {
